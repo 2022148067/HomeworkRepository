@@ -1,9 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="utf-8">
     <title>A simple HTML document</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        li {
+            margin: 0 10px;
+        }
+
+        table, th, td {
+            border:1px solid black;
+        }
+    </style>
 </head>
 <body>
-    <p>Hello World!<p>
+    <header>
+        <h1>Welcome to an introduction page of myself, Jaehyun Kim</h1>
+    </header>
+    <a href="https://www.instagram.com/ojaehyuno/">#my instagram account</a>
+    <p>you can see some pictures of me</p>
+    <a href="https://blog.naver.com/kdjames0930">#my blog</a>
+    <p>there are ususally programming posts and other stuff</p>
+    <ul>
+        <li><img src="glps37flag.png" alt="glps37flag" width="250" height="300"</li>
+        <li><img src="mestudying.png" alt="me_studying" width="250" height="300"</li>
+        <li><img src="playingwitheggs.png" alt="playing_with_eggs" width="250" height="300"</li>
+    </ul>
+    <p>recent pictures of me</p>
+    <p>I graduated KMLA and now am studying here in Yonsei university. I usually hang out with my highschool friends.</p>
+    <table style="width:200px; height:100px; text-align:center;">
+        <caption>my life</caption>
+        <tr>
+            <th>age</th>
+            <th>school</th>
+            <th colspan="2">fav_artist and song</th>
+            <th>fav_sports</th>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>Sanun El</td>
+            <td>Fun</td>
+            <td>We are young</td>
+            <td>Baseball</td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>St.Benedict</td>
+            <td>Maroon5</td>
+            <td>Daylight</td>
+            <td rowspan="4">Badminton</td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td rowspan="3">Unjung mid</td>
+            <td>Bigbang</td>
+            <td>Monster</td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td>Shawn Mendes</td>
+            <td>Imagination</td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td>Ed Sheeran</td>
+            <td>Perfect</td>
+        </tr>
+        <tr>
+            <td>17</td>
+            <td rowspan="3">KMLA</td>
+            <td>Illenium</td>
+            <td>Good things fall apart</td>
+            <td rowspan="3">Soccer</td>
+        </tr>
+        <tr>
+            <td>18</td>
+            <td>Lee Ssang</td>
+            <td>Clown</td>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td>EXO</td>
+            <td>First Snow</td>
+        </tr>
+        <tr>
+            <td>20</td>
+            <td>Yonsei Univ</td>
+            <td>Jang Bum Joon</td>
+            <td>Go back</td>
+            <td>Workout</td>
+        </tr>
+    </table>
 </body>
 </html>
