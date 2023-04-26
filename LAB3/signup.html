@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <title>signup</title>
+</head>
+<body>
+    <p class="title">Welcome to Jaehyun's INTERNET-PROGRAMMING SHOP!</p>
+    <button type="button" class="bt" onclick="location.href='login.html'">로그인</button>
+    <button type="button" class="bt" onclick="location.href='signup.html'">회원가입</button>
+    <hr class="line_su">
+    <div class="container">
+        <table>
+            <tr>
+                <td><input type="text" name="id" placeholder="Enter ID" autofocus="autofocus"></td>
+            </tr>
+            <tr>
+                <td><input type="password" name="pw" placeholder="Enter Password" required></td>
+            </tr>
+            <tr>
+                <td><input type="number" name="age" min="1" placeholder="Age" step="1"></td>
+            </tr>
+            <tr>
+                <td><input type="email" name="email" placeholder="Enter E-mail Adress"></td>
+            </tr>
+            <tr>
+                <td><input type="tel" name="tel" placeholder="Telephone number" autocomplete="on"></td>
+            </tr>
+        </table>
+   
+    </div>
+    <button type="submit" class="bts">SUBMIT</button>
+    <button type="reset" class="btr">RESET</button>
+</body>
+</html>
