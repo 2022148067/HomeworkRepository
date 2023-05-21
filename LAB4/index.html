@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <title>main_page</title>
+</head>
+<body>
+    <div class="width_set">
+        <h1 class="titles">Jaehyun's Internet Programming Shop</h1>
+        <hr />
+        <div class="flex-log">
+            <input type="button" onclick="location.href='login.html'" class="itolog" value="LOGIN" />
+            <input type="button" onclick="location.href='signup.html'" class="itolog" value="SIGN UP" />
+        </div>
+        <br />
+        <input type="text" id="search-input" placeholder="Search by keyword">
+        <div id="filter-options">
+            <select id="category-select">
+                <option value="">All</option>
+                <option value="human">human</option>
+                <option value="etc">etc</option>
+            </select>
+            <select id="sort-select">
+                <option value="name-asc">Name (Ascending)</option>
+                <option value="name-desc">Name (Descending)</option>
+                <option value="price-asc">Price (Ascending)</option>
+                <option value="price-desc">Price (Descending)</option>
+            </select>
+        </div>
+        <div class="grid" id="image-grid"></div>
+    </div>
+    <script>
+        function createImageGrid(products) {
+            const imageGrid = document.getElementById('image-grid');
+
+            imageGrid.innerHTML = ''; 
+
+            products.forEach(product => {
+                const gridItem = document.createElement('div');
+                gridItem.className = 'grid-item';
+
+                const imgElement = document.createElement('img');
+                imgElement.src = product.image;
+                imgElement.alt = product.name;
+
+                const descriptionElement = document.createElement('div');
+                descriptionElement.className = 'description';
+
+                const nameElement = document.createElement('p');
+                nameElement.textContent = product.name;
+
+                const priceElement = document.createElement('p');
+                priceElement.innerHTML = `Price: <span>${product.price}</span>`;
+
+                const descriptionTextElement = document.createElement('p');
+                descriptionTextElement.textContent = product.description;
+
+                descriptionElement.appendChild(nameElement);
+                descriptionElement.appendChild(priceElement);
+                descriptionElement.appendChild(descriptionTextElement);
+
+                gridItem.appendChild(descriptionElement);
+                gridItem.appendChild(imgElement);
+                imageGrid.appendChild(gridItem);
+            });
+        }
+
+        function hideDescription() {
+            const descriptions = document.querySelectorAll('.description');
+            descriptions.forEach(description => {
+                description.style.display = 'none';
+            });
+        }
+
+        fetch('product.json')
+            .then(response => response.json())
+            .then(data => {
+                
+                const originalProducts = data.products;
+                let filteredProducts = originalProducts.slice(); 
+
+                // 키워드
+                const searchInput = document.getElementById('search-input');
+                searchInput.addEventListener('input', () => {
+                    const keyword = searchInput.value.toLowerCase().trim();
+                    filteredProducts = originalProducts.filter(product => {
+                        return product.name.toLowerCase().includes(keyword);
+                    });
+                    applyFiltersAndSort(filteredProducts);
+                });
+
+                // 카테고리 필터링 
+                const categorySelect = document.getElementById('category-select');
+                categorySelect.addEventListener('change', () => {
+                    const category = categorySelect.value;
+                    if (category) {
+                        filteredProducts = originalProducts.filter(product => {
+                            return product.category === category;
+                        });
+                    } else {
+                        filteredProducts = originalProducts.slice();
+                    }
+                    applyFiltersAndSort(filteredProducts);
+                });
+
+                // 정렬 
+                const sortSelect = document.getElementById('sort-select');
+                sortSelect.addEventListener('change', () => {
+                    const sortOption = sortSelect.value;
+                    filteredProducts.sort((a, b) => {
+                        const [sortBy, sortOrder] = sortOption.split('-');
+                        if (sortBy === 'name') {
+                            const nameA = a.name.toLowerCase();
+                            const nameB = b.name.toLowerCase();
+                            if (sortOrder === 'asc') {
+                                return nameA.localeCompare(nameB);
+                            } else {
+                                return nameB.localeCompare(nameA);
+                            }
+                        } else if (sortBy === 'price') {
+                            const priceA = parseFloat(a.price);
+                            const priceB = parseFloat(b.price);
+                            if (sortOrder === 'asc') {
+                                return priceA - priceB;
+                            } else {
+                                return priceB - priceA;
+                            }
+                        }
+                    });
+                    applyFiltersAndSort(filteredProducts);
+                });
+
+                function applyFiltersAndSort(products) {
+                    hideDescription();
+                    createImageGrid(products);
+                }
+
+                createImageGrid(data.products);
+            })
+            .catch(error => console.error(error));
+    </script>
+</body>
+</html>

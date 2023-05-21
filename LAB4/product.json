@@ -1,0 +1,81 @@
+{
+  "products": [
+    {
+      "name": "prod1",
+      "price": 10000,
+      "image": "prod1.jpg",
+      "description": "product1",
+      "category": "etc"
+    },
+    {
+      "name": "prod2",
+      "price": 20000,
+      "image": "prod2.jpg",
+      "description": "product2",
+      "category": "human"
+    },
+    {
+      "name": "prod3",
+      "price": 15000,
+      "image": "prod3.jpeg",
+      "description": "product3",
+      "category": "human"
+    },
+    {
+      "name": "prod4",
+      "price": 18000,
+      "image": "prod4.jpg",
+      "description": "product4",
+      "category": "human"
+    },
+    {
+      "name": "prod5",
+      "price": 12000,
+      "image": "prod5.jpg",
+      "description": "product5",
+      "category": "human"
+    },
+    {
+      "name": "prod6",
+      "price": 25000,
+      "image": "prod6.jpg",
+      "description": "product6",
+      "category": "human"
+    },
+    {
+      "name": "prod7",
+      "price": 12000,
+      "image": "prod7.jpeg",
+      "description": "product7",
+      "category": "etc"
+    },
+    {
+      "name": "prod8",
+      "price": 22000,
+      "image": "prod8.jpeg",
+      "description": "product8",
+      "category": "human"
+    },
+    {
+      "name": "prod9",
+      "price": 1000,
+      "image": "prod9.jpeg",
+      "description": "product9",
+      "category": "etc"
+    },
+    {
+      "name": "prod10",
+      "price": 17000,
+      "image": "prod10.jpeg",
+      "description": "product10",
+      "category": "human"
+    },
+    {
+      "name": "prod11",
+      "price": 120,
+      "image": "prod11.jpeg",
+      "description": "product11",
+      "category": "etc"
+    }
+  ]
+}
